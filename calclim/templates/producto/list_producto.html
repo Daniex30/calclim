@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registrar Producto
+{% endblock title %}
+    
+
+{% block content %}
+    
+{% include 'includes/header.html' %}
+<h1>Stock de productos</h1>
+<a href="{% url 'producto_app:product_add' %}" class="button-save"> Crear</a>
+<br>
+<table class="hover">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Categoria</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for p in productos %}
+      <tr>
+        <td>{{ p.nombre}}</td>
+        <td>{{ p.categoria }}</td>
+        <td>${{ p.precio }}</td>
+        <td>{{ p.cantidad }}</td>
+        <td>
+            <a href="{% url 'producto_app:product_update' p.id %}" class="button primary">Editar</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}

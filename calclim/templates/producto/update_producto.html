@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Actualizar Producto
+{% endblock title %}
+    
+
+{% block content %}
+    
+{% include 'includes/header.html' %}
+
+<div class="grid-contaniner">
+    <div class="grid-x align-center">
+        <h1 class="cell ">Actualizar Producto</h1>
+        <form enctype="multipart/form-data" method="POST" class="cell grid-x grid-margin-x" >{% csrf_token %}
+            <div class="large-6 cell">
+                <label>Nombre:
+                  {{ form.nombre}}
+                </label>
+            </div>
+                <div class="large-6 cell">
+                    <label>Categoria:
+                      {{ form.categoria}}
+                    </label>
+                </div> 
+                <div class="large-6 cell">
+                    <label>Precio:
+                      {{ form.precio}}
+                    </label>
+                </div> 
+                <div class="large-6 cell">
+                    <label>Cantidad:
+                      {{ form.cantidad}}
+                    </label>
+                </div> 
+                <div class="large-6 cell">
+                    <label>Activo:
+                      {{ form.estado}}
+                    </label>
+                </div> 
+                <div class="cell">
+                    <button type="submit" class="button-save">Actualizar</button>
+                    <a href="{% url 'producto_app:product_list' %}" class="button-return">Volver </a>
+                </div> 
+            </div>        
+        </form>
+    </div>
+</div>
+{% endblock content %}
+    
